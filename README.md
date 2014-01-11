@@ -26,8 +26,14 @@ angularjs-nodejs-users
 
 > bower install
 
+> mongodb
+
+> node app.js or npm start or node app
+
 ####Needs
 
 Nodejs and NPM installed
 
 Bower installed
+
+MongoDB installed
