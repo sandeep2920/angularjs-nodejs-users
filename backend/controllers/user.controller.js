@@ -8,6 +8,7 @@ module.exports = function(app) {
         userService.list(function(users){
             res.json(users);
         }, function(err){
+            res.statusCode = 400;
             res.send(err);
         });
     });
@@ -16,6 +17,7 @@ module.exports = function(app) {
         userService.get(req.params.id, function(user){
             res.json(user);
         }, function(err){
+            res.statusCode = 400;
             res.send(err);
         });
     });
@@ -25,12 +27,14 @@ module.exports = function(app) {
             userService.update(req.body, function(user){
                 res.json(user);
             }, function(err){
+                res.statusCode = 400;
                 res.send(err);
             });
         } else {
             userService.create(req.body, function(user){
                 res.json(user);
             }, function(err){
+                res.statusCode = 400;
                 res.send(err);
             });
         }
@@ -40,6 +44,7 @@ module.exports = function(app) {
         userService.remove(req.params.id, function(user){
             res.json(user);
         }, function(err){
+            res.statusCode = 400;
             res.send(err);
         });
     });

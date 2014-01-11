@@ -1,0 +1,17 @@
+body {
+    background: white;
+    font-family: Helvetica, Arial, sans-serif;
+    color: black;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+form {
+    margin: 10px;
+}
+
+li {
+    margin: 2px;
+}

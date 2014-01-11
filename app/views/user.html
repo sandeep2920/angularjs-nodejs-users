@@ -1,27 +1,51 @@
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>User</th>
-    <th>Action</th>
-    <th><input type="button" ng-click="newUser()" value="New" class="btn"/></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="user in users">
-    <td>{{user.name}}</td>
-    <td>{{user.username}}</td>
-    <td>
-        <a class="btn btn-danger" href="" ng-click="editUser(user)">Edit</a>
-        <a class="btn btn-danger" href="" ng-click="removeUser(user)">Remove</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<div>
-    <hr/>
-    <div><input type="text" ng-model="user.name" name="name"/></div>
-    <div><input type="text" ng-model="user.username" name="username"/></div>
-    <div><input type="text" ng-model="user.password" name="password"/></div>
-    <div><input type="button" ng-click="saveUser()" value="SAVE" class="btn"/></div>
+<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Action</th>
+                <th><input type="button" ng-click="newUser()" value="New User" class="btn btn-success"/></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>
+                    <a class="btn btn-danger" href="" ng-click="editUser(user)">Edit</a>
+                    <a class="btn btn-danger" href="" ng-click="removeUser(user)">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="panel panel-default">
+    <form role="form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" ng-model="user.name" id="name"/>
+            <div class="alert alert-danger" ng-show="nameErrorMessage">{{nameErrorMessage}}</div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" ng-model="user.username" id="username"/>
+            <div class="alert alert-danger" ng-show="usernameErrorMessage">{{usernameErrorMessage}}</div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" ng-model="user.password" id="password"/>
+            <div class="alert alert-danger" ng-show="passwordErrorMessage">{{passwordErrorMessage}}</div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <input type="button" class="btn btn-success" ng-click="saveUser()" value="SAVE"/>
+                </li>
+                <li>
+                    <input type="button" ng-click="newUser()" value="RESET" class="btn btn-danger"/>
+                </li>
+            </ul>
+        </div>
+    </form>
 </div>
