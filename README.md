@@ -21,7 +21,9 @@ angularjs-nodejs-users
 ####Running application
 
 > git clone https://github.com/trgpwild/angularjs-nodejs-users.git
+
 > npm install
+
 > bower install
 
 ####Needs
