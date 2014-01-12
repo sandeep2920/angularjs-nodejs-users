@@ -15,3 +15,7 @@ form {
 li {
     margin: 2px;
 }
+
+.actions {
+    width: 200px;
+}

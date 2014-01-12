@@ -22,6 +22,18 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/users/:page/:limit', function(req, res) {
+        userService.paginate(req.params.page, req.params.limit, function(total, users){
+            res.json({
+                total : Math.ceil(total / req.params.limit),
+                users : users
+            });
+        }, function(err){
+            res.statusCode = 400;
+            res.send(err);
+        });
+    });
+
     app.post('/api/users', function(req, res) {
         if (req.body._id) {
             userService.update(req.body, function(user){

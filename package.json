@@ -4,7 +4,8 @@
     "private": true,
     "dependencies": {
         "express": "latest",
-        "mongoose" : "latest"
+        "mongoose" : "latest",
+        "mongoose-pagination" : "latest"
     }, "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-copy": "~0.4.1",

@@ -1,3 +1,5 @@
+require('mongoose-pagination');
+
 var User = require('./../models/user');
 
 (function() {
@@ -23,6 +25,15 @@ var User = require('./../models/user');
         });
     };
 
+    UserService.prototype.paginate = function(page, limit, callbackSuccess, callbackError) {
+        User.find().paginate(page, limit, function(err, users, total) {
+            if (err) {
+                callbackError(err);
+            }
+            callbackSuccess(total, users);
+        });
+    };
+    
     UserService.prototype.update = function(userParam, callbackSuccess, callbackError) {
         User.findOne({_id: userParam._id}, function(err, user) {
             if (err) {
