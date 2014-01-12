@@ -5,8 +5,7 @@ angular.module('angularjsNodejsUsersApp').factory('UserService', ['$resource', f
         id: '@id'
     }, {
         list: {method: 'GET', isArray: true},
-        update: {method: 'PUT'},
-        create: {method: 'POST'},
+        save: {method: 'POST'},
         remove: {method: 'DELETE'}
     });
 }]);

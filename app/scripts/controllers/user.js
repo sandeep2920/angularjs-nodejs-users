@@ -27,12 +27,17 @@ angular.module('angularjsNodejsUsersApp').controller('UserCtrl', ['$scope', 'Use
         $scope.reset();
     };
 
+    $scope.removeUser = function(user) {
+        $scope.user = user;
+    };
+
     $scope.saveUser = function() {
         $scope.reset();
-        $scope.user.$create(function(data) {
+        $scope.user.$save(function(data) {
             console.log(data);
-            $scope.listAllUsers();
-            $scope.successMessage = 'Information saved';
+            $scope.newUser();
+            $scope.successMessage = 'User saved';
+            $('#formModal').modal('hide');
         }, function(err) {
             angular.forEach(err.data.errors, function(value, key) {
                 $scope[value.path + 'ErrorMessage'] = value.message;
@@ -40,10 +45,10 @@ angular.module('angularjsNodejsUsersApp').controller('UserCtrl', ['$scope', 'Use
         });
     };
 
-    $scope.removeUser = function(user) {
-        $scope.user.$remove({id: user._id}, function(res) {
+    $scope.doRemove = function() {
+        $scope.user.$remove({id: $scope.user._id}, function(res) {
             $scope.reset();
-            $scope.successMessage = 'Information removed';
+            $scope.successMessage = 'User removed';
         });
     };
 
